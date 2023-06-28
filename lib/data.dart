@@ -22,6 +22,12 @@ const List<ElevationInfo> elevations = <ElevationInfo>[
   ElevationInfo(3, 6.0, 11),
   ElevationInfo(4, 8.0, 12),
   ElevationInfo(5, 12.0, 14),
+  ElevationInfo(6, 14.0, 16),
+  ElevationInfo(7, 16.0, 18),
+  ElevationInfo(8, 18.0, 20),
+  ElevationInfo(9, 20.0, 22),
+  ElevationInfo(10, 22.0, 24),
+  ElevationInfo(11, 24.0, 26),
 ];
 
 const List<ExampleDestination> destinations = <ExampleDestination>[
@@ -64,6 +70,24 @@ const List<NavigationDestination> appBarDestinations = [
     icon: Icon(Icons.invert_colors_on_outlined),
     label: 'Elevation',
     selectedIcon: Icon(Icons.opacity),
+  ),
+  NavigationDestination(
+    tooltip: '',
+    icon: Icon(Icons.dashboard_customize_outlined),
+    label: 'Dashboards',
+    selectedIcon: Icon(Icons.dashboard_customize),
+  ),
+  NavigationDestination(
+    tooltip: '',
+    icon: Icon(Icons.add_chart_outlined),
+    label: 'Charts',
+    selectedIcon: Icon(Icons.addchart),
+  ),
+  NavigationDestination(
+    tooltip: '',
+    icon: Icon(Icons.browse_gallery_outlined),
+    label: 'Gallery',
+    selectedIcon: Icon(Icons.browse_gallery),
   )
 ];
 
@@ -114,3 +138,19 @@ List<Widget> barWithBadgeDestinations = [
     selectedIcon: Badge.count(count: 3, child: const Icon(Icons.videocam)),
   )
 ];
+
+final List<NavigationRailDestination> navRailDestinations = appBarDestinations
+    .map(
+      (destination) => NavigationRailDestination(
+        icon: Tooltip(
+          message: destination.label,
+          child: destination.icon,
+        ),
+        selectedIcon: Tooltip(
+          message: destination.label,
+          child: destination.selectedIcon,
+        ),
+        label: Text(destination.label),
+      ),
+    )
+    .toList();

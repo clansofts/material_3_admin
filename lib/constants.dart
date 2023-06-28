@@ -122,7 +122,10 @@ enum ScreenSelected {
   component(0),
   color(1),
   typography(2),
-  elevation(3);
+  elevation(3),
+  dashboards(4),
+  charts(5),
+  gallery(6);
 
   const ScreenSelected(this.value);
   final int value;
